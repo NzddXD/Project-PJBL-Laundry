@@ -6,8 +6,8 @@
     <title>Laundry | Dashboard</title>
 </head>
 <body>
-    <h1>Welcome to the Admin Dashboard</h1>
-    <p>This is a protected area for admin users only.</p>
+    <h1>Welcome to the Cashier's Dashboard</h1>
+    <p>This is a protected area for Cashier only.</p>
 
     <?php
     // Start session
@@ -15,6 +15,7 @@
 
     // Check if user is logged in
     if (!isset($_SESSION["username"])) {
+        if ($_SESSION["role"] != 'cashier')
         header("location:../../index.php?msg=not_loggedIn");
         exit();
     }
