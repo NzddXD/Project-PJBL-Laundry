@@ -52,6 +52,11 @@ function confirmDelete(id) {
 }
 
 // Popup w/ hidden delete button
+function hidePopup() {
+  closeButton.onclick = function () {
+    window.location.href = "../../app/admin/customer.php";
+  };
+}
 
 function updated() {
   console.log("updated() function yield!");
@@ -60,6 +65,9 @@ function updated() {
   popup.style.display = "flex";
   titleText.textContent = "Berhasil!";
   messageText.textContent = "Data telah berhasil diupdate.";
+
+  hidePopup();
+
 }
 
 function deleted() {
@@ -69,6 +77,8 @@ function deleted() {
   popup.style.display = "flex";
   titleText.textContent = "Dihapus!";
   messageText.textContent = "Data berhasil dihapus.";
+
+  hidePopup();
 }
 
 function errorOnDelete() {
@@ -78,4 +88,6 @@ function errorOnDelete() {
   popup.style.display = "flex";
   titleText.textContent = "Kesalahan!";
   messageText.textContent = "Terjadi kesalahan saat menghapus data.";
+
+  hidePopup();
 }
