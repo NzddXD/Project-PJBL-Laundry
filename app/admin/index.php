@@ -26,7 +26,7 @@
                     <img src="../../assets/user.png" alt="user" width="45" height="45">
                     <div class="status-text">
                         <p>Total Pelanggan</p>
-                        <h2>100</h2>
+                        <h2><?php include_once '../../funcs/hitungPelanggan.php'; echo getCustomer(); ?></h2>
                     </div>
 
                 </div>

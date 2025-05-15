@@ -18,9 +18,9 @@
                 <h2>Ubah Password</h2>
                 <form action="changePassword.php">
                     <label for="oldPasswordChange">Masukkan Password yang lama</label>
-                    <input type="text" name="" id="oldPasswordChange" placeholder="Minimal 8 karakter">
+                    <input type="password" name="" id="oldPasswordChange" placeholder="Minimal 8 karakter">
                     <label for="newPasswordChange">Masukkan Password yang baru</label>
-                    <input type="text" name="" id="newPasswordChange" placeholder="Minimal 8 karakter">
+                    <input type="password" name="" id="newPasswordChange" placeholder="Minimal 8 karakter">
                     <input type="submit" value="Tetapkan Perubahan">
                 </form>
             </div>
