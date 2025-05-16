@@ -190,6 +190,17 @@
   width: 8px;
 }
 
+/* Menu Button */
+#collapse {
+  display: block;
+  position: absolute;
+  padding: 10px;
+  background-color: #d9cfc1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 /* Responsive */
 @media screen and (max-width < 509px){
   .navbar {

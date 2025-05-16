@@ -12,83 +12,42 @@
 <body>
     <?php include 'sidebar.php'; ?> <!-- Cleaner code -->
     <section class="content">
-        <h1>Dashboard</h1>
+        <h1>Pesanan</h1>
         <div class="dashboard">
-            <div class="status-details">
-                <div class="status">
-                    <img src="../../assets/clock.png" alt="clock" width="45" height="45">
-                    <div class="status-text">
-                        <p>Cucian Menunggu</p>
-                        <h2>100</h2>
-                    </div>
-                </div>
-                <div class="status">
-                    <img src="../../assets/user.png" alt="user" width="45" height="45">
-                    <div class="status-text">
-                        <p>Total Pelanggan</p>
-                        <h2>100</h2>
-                    </div>
-
-                </div>
-                <div class="status">
-                    <img src="../../assets/cheap-2.png" alt="dollar" width="45" height="45">
-                    <div class="status-text">
-                        <p>Total Transaksi</p>
-                        <h2>100</h2>
-                    </div>
-                </div>
+            <div class="text-container">
+                <p>Data pesanan yang ada di Database</p>
+                <!-- <a href="newCustomer.php" class="addbutton">Pelanggan Baru</a> -->
             </div>
-        </div>
-        <div class="history">
-            <h2 class="history-text">Histori Transaksi</h2>
-            <div class="container">
-                <p>Histori transaksi dari bulan terakhir</p>
-                <a href="http://" target="_blank" rel="noopener noreferrer">Lihat Selengkapnya</a>
-            </div>
-            <div class="history-table">
+            <div class="dashboard">
                 <table>
                     <tr>
                         <td>
-                            <h3>Tanggal</h3>
+                            <p>ID</p>
                         </td>
                         <td>
-                            <h3>Nama Pelanggan</h3>
+                            <p>Nama</p>
                         </td>
                         <td>
-                            <h3>Jumlah Transaksi</h3>
+                            <p>Email</p>
                         </td>
                         <td>
-                            <h3>Catatan</h3>
+                            <p>Jenis Kelamin</p>
+                        </td>
+                        <td>
+                            <p>Alamat</p>
+                        </td>
+                        <td>
+                            <p>Telepon</p>
+                        </td>
+                        <td>
+                            <p>Action</p>
                         </td>
                     </tr>
                     <tr>
-                        <td>12 Mei 2009</td>
-                        <td>Muhammad Nezad</td>
-                        <td>26.900</td>
-                        <td>Tes deskripsi</td>
+                        <td><p></p></td>
                     </tr>
-                    <tr>
-                        <td>12 Oktober 2007</td>
-                        <td>Darren Marvel</td>
-                        <td>39.750</td>
-                        <td>Ini tes deskripsi kerja kerja kerja</td>
-                    </tr>
-                    <tr>
-                        <td>12 Oktober 2007</td>
-                        <td>Darren Marvel</td>
-                        <td>39.750</td>
-                        <td>Tes deskripsi</td>
-                    </tr>
-                    <tr>
-                        <td>12 Oktober 2007</td>
-                        <td>Darren Marvel</td>
-                        <td>39.750</td>
-                        <td>Tes deskripsi</td>
-                    </tr>
-
                 </table>
             </div>
-        </div>
     </section>
 </body>
 

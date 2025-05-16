@@ -1,12 +1,15 @@
 <link rel="stylesheet" href="style/sidebar.css">
 
 <aside class="navbar">
+    <div class="collapse-button">
+        <button id="collapse"><img src="https://img.icons8.com/material-sharp/314345/menu--v1.png" alt="menu" width="20" height="20"></button>
+    </div>
     <div class="greeting">
         <h1>Menu</h1>
         <p>Sistem Laundry Online</p>
         <!-- <ul>
                 <li><?php
-                // Start session
+                // Start session 
                 session_start();
 
                 // Check if user is logged in
@@ -27,7 +30,7 @@
             <li><a href="customer.php">Pelanggan</a><img src="../../assets/user.png" width="28" height="28" /></li>
             <li><a href="order.php">Pesanan</a><img src="../../assets/mail.png" width="28" height="28" /></li>
             <li><a href="transaction.php">Transaksi</a><img src="../../assets/cheap-2.png" width="28" height="28" /></li>
-            <li><a href="laundry.php">Cucian</a><img src="../../assets/laundry.png" width="28" height="28" /></li>
+            <li><a href="outlet.php">Outlet</a><img src="../../assets/shop.png" width="28" height="28" /></li>
             <li><a href="settings.php">Pengaturan</a><img src="../../assets/settings.png" width="25" height="25" /></li>
         </ul>
     </div>
