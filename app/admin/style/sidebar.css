@@ -17,6 +17,7 @@
   height: 100vh;
   background-color: #d9cfc1;
   font-family: "Poppins", sans-serif;
+  z-index: 3;
 }
 .navbar .greeting {
   display: flex;
@@ -191,13 +192,15 @@
 }
 
 /* Menu Button */
+
 #collapse {
   display: block;
   position: absolute;
+  top: 1.3em;
+  right: -3em;
   padding: 10px;
-  background-color: #d9cfc1;
+  background-color: #a99983;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
 }
 

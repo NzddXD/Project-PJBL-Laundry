@@ -9,7 +9,7 @@ function tampilkanPelanggan($page = 1, $limit = 5)
     $offset = ($page - 1) * $limit;
 
     // Query to fetch rows with pagination
-    $sql = "SELECT * FROM tb_member LIMIT ?, ?";
+    $sql = "SELECT * FROM tb_paket LIMIT ?, ?";
     $stmt = $connect->prepare($sql);
     $stmt->bind_param("ii", $offset, $limit);
     $stmt->execute();
@@ -20,18 +20,17 @@ function tampilkanPelanggan($page = 1, $limit = 5)
         // Loop through the rows and output them as table rows
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>" . htmlspecialchars($row['id_member']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['nama']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['email']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['jenis_kelamin']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['alamat']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['tlp']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['id_paket']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['id_outlet']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['jenis']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['nama_paket']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['harga']) . "</td>";
             echo "<td>
                     <div class='buttons'>
                         <a href='editCustomer.php?id=" . $row['id_member'] . "' class='edit' title='Edit'>
                             <img src='../../assets/pencil.png' width='23' height='23' alt='pencil icon'>
                         </a>
-                        <button class='delete' title='Delete' onclick=\"confirmDelete('deletePelanggan.php', '" . $row['id_member'] . "')\">
+                        <button class='delete' title='Delete' onclick=\"confirmDelete(" . $row['id_member'] . ")\">
                             <img src='../../assets/trash.png' width='23' height='23' alt='trash icon'>
                         </button>
                     </div>
@@ -39,22 +38,22 @@ function tampilkanPelanggan($page = 1, $limit = 5)
             echo "</tr>";
         }
     } else {
+        
         // If no data is found, display a message
         echo "<tr><td colspan='7'>Ups! Tidak ada data ditemukan di dalam database!</td></tr>";
     }
 
-    // Close the statement and connection
     $stmt->close();
     $connect->close();
 }
 
-function getTotalCustomers()
+function getTotalOrder()
 {
     // Include the database connection
     include $_SERVER['DOCUMENT_ROOT'] . '/project/connection/connection.php';
 
     // Query to count total rows in tb_member
-    $sql = "SELECT COUNT(*) AS total FROM tb_member";
+    $sql = "SELECT COUNT(*) AS total FROM tb_paket";
     $result = $connect->query($sql);
 
     // Fetch the result

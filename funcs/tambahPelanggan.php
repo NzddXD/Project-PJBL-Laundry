@@ -13,7 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tlp = $_POST['tlp'];
 
     try {
-        // Check for the maximum existing id in the table
+
+        // Mendapatkan ID member berikutnya
         $result = $connect->query("SELECT MAX(id_member) AS max_id FROM tb_member");
         $row = $result->fetch_assoc();
         $next_id = $row['max_id'] ? $row['max_id'] + 1 : 1; // If no rows exist, start with 1
@@ -29,17 +30,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: ../app/admin/newCustomer.php?msg=success");
         exit();
     } catch (mysqli_sql_exception $e) {
+
         // Cek jika error adalah entri duplikat
         if ($e->getCode() == 1062) {
+
             // Redirect ke halaman tambah pelanggan dengan pesan error
             header("Location: ../app/admin/newCustomer.php?msg=duplicate");
+
         } else {
+
             // Redirect ke halaman tambah pelanggan dengan pesan error umum
             header("Location: ../app/admin/newCustomer.php?msg=error");
         }
         exit();
     }
 } else {
+
     // Redirect jika request bukan POST
     header("Location: ../app/admin/newCustomer.php?msg=invalid");
     exit();

@@ -33,7 +33,7 @@ $totalPages = ceil($totalCustomers / $limit);
             <p id="messageText">Data pelanggan baru telah berhasil didaftarkan.</p>
             <div class="choices">
                 <button class="close-popup" onclick="closePopup()">Batal</button>
-                <button class="delete-button" onclick="confirmDelete()">Hapus</button>
+                <button class="delete-button">Hapus</button>
             </div>
         </div>
     </div>
@@ -43,13 +43,13 @@ $totalPages = ceil($totalCustomers / $limit);
     <?php
     if (isset($_GET['msg'])) {
         if ($_GET['msg'] === 'deleted') {
-            echo "<script>deleted()</script>";
+            echo "<script>deleted('../../app/admin/customer.php')</script>";
         } elseif ($_GET['msg'] === 'error') {
-            echo "<script>errorOnDelete()</script>";
+            echo "<script>errorOnDelete('../../app/admin/customer.php')</script>";
         } elseif ($_GET['msg'] === 'invalid') {
             echo "<script>errorOnDelete()</script>";
         } elseif ($_GET['msg'] === 'updated') {
-            echo "<script>updated()</script>";
+            echo "<script>updated('../../app/admin/customer.php')</script>";
         } elseif ($_GET['msg'] === 'error') {
             echo "<script>error()</script>";
         } elseif ($_GET['msg'] === 'invalid') {
@@ -68,25 +68,25 @@ $totalPages = ceil($totalCustomers / $limit);
             <table>
                 <tr>
                     <td>
-                        <p>ID</p>
+                        <h4>ID</h>
                     </td>
                     <td>
-                        <p>Nama</p>
+                        <h4>Nama</h4>
                     </td>
                     <td>
-                        <p>Email</p>
+                        <h4>Email</h4>
                     </td>
                     <td>
-                        <p>Jenis Kelamin</p>
+                        <h4>Jenis Kelamin</h4>
                     </td>
                     <td>
-                        <p>Alamat</p>
+                        <h4>Alamat</h>
                     </td>
                     <td>
-                        <p>Telepon</p>
+                        <h4>Telepon</h4>
                     </td>
                     <td>
-                        <p>Action</p>
+                        <h4>Action</h4>
                     </td>
                 </tr>
                 <?php

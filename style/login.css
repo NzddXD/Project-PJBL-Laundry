@@ -66,18 +66,21 @@ body {
 }
 
 .error.visible{
+  display: flex;
   flex-direction: row-reverse !important;
   text-align: center;
   align-items: center;
-  justify-content: space-between;
+  vertical-align: middle;
+  justify-content: center;
   padding: 10px;
-  width: 50%;
+  width: 100%;
   background-color: var(--err-color);
   margin-bottom: 10px;
   border-radius: 10px;
 }
 
 .status.visible {
+  display: flex;
   flex-direction: row;
   text-align: center;
   align-items: center;
@@ -93,12 +96,14 @@ body {
   font-size: 0.9em;
   font-family: "Merriweather Sans", sans-serif;
   font-weight: lighter;
+  margin: auto;
 }
 .status-msg {
   color: rgb(45, 136, 148);
   font-size: 0.9em;
   font-family: "Merriweather Sans", sans-serif;
   font-weight: lighter;
+  margin: auto;
 }
 
 input {

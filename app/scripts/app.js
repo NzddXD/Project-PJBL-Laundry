@@ -37,7 +37,7 @@ function error() {
   messageText.textContent = "Terjadi kesalahan saat menyimpan data.";
 }
 
-function confirmDelete(id) {
+function confirmDelete(func, id) {
   console.log("confirmDelete function yield!");
   deleteButton.style.display = "block";
   closeButton.textContent = "Batal";
@@ -47,30 +47,29 @@ function confirmDelete(id) {
     "Apakah Anda yakin ingin menghapus data pelanggan ini?";
 
   deleteButton.onclick = function () {
-    window.location.href = "../../funcs/deletePelanggan.php?id=" + id;
+    window.location.href = "../../funcs/" + func + "?id=" + id;
   };
 }
 
 // Popup w/ hidden delete button
-function hidePopup() {
+function hidePopup(goto) {
   closeButton.onclick = function () {
-    window.location.href = "../../app/admin/customer.php";
+    window.location.href = goto;
   };
 }
 
-function updated() {
+function updated(goto) {
   console.log("updated() function yield!");
   deleteButton.style.display = "none";
   closeButton.textContent = "Tutup";
   popup.style.display = "flex";
   titleText.textContent = "Berhasil!";
   messageText.textContent = "Data telah berhasil diupdate.";
-
-  hidePopup();
-
+  
+  hidePopup(goto);
 }
 
-function deleted() {
+function deleted(goto) {
   console.log("deleted() function yield!");
   deleteButton.style.display = "none";
   closeButton.textContent = "Tutup";
@@ -78,10 +77,10 @@ function deleted() {
   titleText.textContent = "Dihapus!";
   messageText.textContent = "Data berhasil dihapus.";
 
-  hidePopup();
+  hidePopup(goto);
 }
 
-function errorOnDelete() {
+function errorOnDelete(goto) {
   console.log("errorOnDelete() function yield!");
   deleteButton.style.display = "none";
   closeButton.textContent = "Tutup";
@@ -89,5 +88,5 @@ function errorOnDelete() {
   titleText.textContent = "Kesalahan!";
   messageText.textContent = "Terjadi kesalahan saat menghapus data.";
 
-  hidePopup();
+  hidePopup(goto);
 }

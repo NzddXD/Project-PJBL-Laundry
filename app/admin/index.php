@@ -31,10 +31,10 @@
 
                 </div>
                 <div class="status">
-                    <img src="../../assets/cheap-2.png" alt="dollar" width="45" height="45">
+                    <img src="../../assets/mail.png" alt="mail" width="45" height="45">
                     <div class="status-text">
-                        <p>Total Transaksi</p>
-                        <h2>100</h2>
+                        <p>Total Pesanan</p>
+                        <h2><?php include_once '../../funcs/hitungPesanan.php'; echo getOrder(); ?></h2>
                     </div>
                 </div>
             </div>

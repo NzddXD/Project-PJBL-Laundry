@@ -29,11 +29,9 @@
         </div>
         <form action="loginSystem.php" method="get">
             <div class="error">
-                <img src="https://img.icons8.com/search" width="15" height="15" onclick="alert('boo')" />
                 <p class="error-msg" id="err">Error blablabla</p>
             </div>
             <div class="status">
-                <img src="https://img.icons8.com/search" width="15" height="15" onclick="alert('boo')" />
                 <p class="status-msg" id="stat"></p>
             </div>
             <div class="mb-3">
@@ -52,33 +50,41 @@
         </form>
     </div>
 
-    <?php
-if (isset($_GET['msg'])) {
-    if ($_GET['msg'] === 'error') {
-        echo "<script>document.querySelector('.error').classList.add('visible');</script>";
-    } else if ($_GET['msg'] === 'logout') {
-        echo "<script>document.querySelector('.status').classList.add('visible');</script>";
-    } else if ($_GET['msg'] === 'not_loggedIn') {
-        echo "<script>document.querySelector('.error').classList.add('visible');</script>";
-    }
-}
-?>
+
     <script>
-        const error = document.querySelector('.error');
-        const status = document.querySelector('.status');
+        const errorMsg = document.querySelector('.error');
+        const statusMsg = document.querySelector('.status');
 
-        if (error.classList.contains('visible')) {
-            setTimeout(() => {
-                error.classList.remove('visible');
-            }, 3000);
+        function error(message) {
+            errorMsg.classList.add('visible');
+            errorMsg.querySelector('.error-msg').textContent = message;
+            if (errorMsg.classList.contains('visible')) {
+                setTimeout(() => {
+                    errorMsg.classList.remove('visible');
+                }, 3000);
+            }
         }
-
-        if (status.classList.contains('visible')) {
-            setTimeout(() => {
-                status.classList.remove('visible');
-            }, 3000);
+        function status(message) {
+            statusMsg.classList.add('visible');
+            statusMsg.querySelector('.status-msg').textContent = message;
+            if (statusMsg.classList.contains('visible')) {
+                setTimeout(() => {
+                    statusMsg.classList.remove('visible');
+                }, 3000);
+            }
         }
     </script>
+    <?php
+    if (isset($_GET['msg'])) {
+        if ($_GET['msg'] === 'error') {
+            echo "<script>error('Username atau password salah!');</script>";
+        } else if ($_GET['msg'] === 'logout') {
+            echo "<script>status('Anda telah berhasil logout.');</script>";
+        } else if ($_GET['msg'] === 'not_loggedIn') {
+            echo "<script>error('Silakan login terlebih dahulu.');</script>";
+        }
+    }
+    ?>
 </body>
 
 </html>

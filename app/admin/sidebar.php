@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="style/sidebar.css">
 
 <aside class="navbar">
-    <div class="collapse-button">
+    <!-- <div class="collapse-button">
         <button id="collapse"><img src="https://img.icons8.com/material-sharp/314345/menu--v1.png" alt="menu" width="20" height="20"></button>
-    </div>
+    </div> -->
     <div class="greeting">
         <h1>Menu</h1>
         <p>Sistem Laundry Online</p>
