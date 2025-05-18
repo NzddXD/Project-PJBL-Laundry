@@ -59,7 +59,7 @@ $totalPages = ceil($totalOrder / $limit);
     <section class="content">
         <h1>Pesanan</h1>
         <div class="text-container">
-            <p>Data pesanan yang ada di Database</p>
+            <p>Total data pesanan di Database: <b><?php echo getTotalOrder(); ?> entri</b></p>
             <a href="newOrder.php" class="addbutton">Pesanan Baru</a>
         </div>
         <div class="dashboard">

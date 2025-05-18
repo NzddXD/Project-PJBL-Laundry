@@ -26,7 +26,7 @@ function tampilkanPesanan($page = 1, $limit = 5)
             echo "<td>" . htmlspecialchars($row['id_outlet']) . "</td>";
             echo "<td>" . htmlspecialchars($row['jenis']) . "</td>";
             echo "<td>" . htmlspecialchars($row['nama_paket']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['harga']) . "</td>";
+            echo "<td>Rp " . number_format($row['harga'], 0, ',', '.') . "</td>";
             echo "<td>
                     <div class='buttons'>
                         <a href='editOrder.php?id=" . $row['id_paket'] . "' class='edit' title='Edit'>
@@ -37,6 +37,42 @@ function tampilkanPesanan($page = 1, $limit = 5)
                         </button>
                     </div>
                 </td>";
+            echo "</tr>";
+        }
+    } else {
+
+        // Jika tidak ada data ditemukan, tampilkan pesan
+        echo "<tr><td colspan='7'>Ups! Tidak ada data ditemukan di dalam database!</td></tr>";
+    }
+
+    $stmt->close();
+    $connect->close();
+}
+
+function tampilDashboardPesanan($page = 1, $limit = 5)
+{
+    // koneksi database
+    include $_SERVER['DOCUMENT_ROOT'] . '/project/connection/connection.php';
+    // Hitung offset untuk kueri
+    $offset = ($page - 1) * $limit;
+
+    // Kueri untuk mengambil baris dengan pagination
+    $sql = "SELECT * FROM tb_paket";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Periksa apakah kueri berhasil
+    if ($result && $result->num_rows > 0) {
+
+        // Loop melalui baris dan output sebagai baris tabel
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . htmlspecialchars($row['id_paket']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['id_outlet']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['jenis']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['nama_paket']) . "</td>";
+            echo "<td>Rp " . number_format($row['harga'], 0, ',', '.') . "</td>";
             echo "</tr>";
         }
     } else {

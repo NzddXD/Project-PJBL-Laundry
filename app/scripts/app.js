@@ -37,7 +37,7 @@ function error() {
   messageText.textContent = "Terjadi kesalahan saat menyimpan data.";
 }
 
-function confirmDelete(func, id) {
+function confirmDelete(funcPath, id) {
   console.log("confirmDelete function yield!");
   deleteButton.style.display = "block";
   closeButton.textContent = "Batal";
@@ -47,7 +47,7 @@ function confirmDelete(func, id) {
     "Apakah Anda yakin ingin menghapus data pelanggan ini?";
 
   deleteButton.onclick = function () {
-    window.location.href = "../../funcs/" + func + "?id=" + id;
+    window.location.href = "../../funcs/" + funcPath + "?id=" + id;
   };
 }
 

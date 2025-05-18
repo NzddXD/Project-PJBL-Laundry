@@ -61,7 +61,7 @@ $totalPages = ceil($totalCustomers / $limit);
     <section class="content">
         <h1>Pelanggan</h1>
         <div class="text-container">
-            <p>Data pelanggan yang ada di Database</p>
+            <p>Total data pelanggan di Database: <b><?php echo getTotalCustomers(); ?> entri</b></p>
             <a href="newCustomer.php" class="addbutton">Pelanggan Baru</a>
         </div>
         <div class="dashboard">

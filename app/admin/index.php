@@ -1,3 +1,13 @@
+<?php
+include $_SERVER['DOCUMENT_ROOT'] . '/project/funcs/tampilkanPesanan.php';
+
+$page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+$limit = 5; // Number of rows per page
+
+// Get the total number of customers
+$totalOrder = getTotalOrder();
+$totalPages = ceil($totalOrder / $limit);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,53 +50,36 @@
             </div>
         </div>
         <div class="history">
-            <h2 class="history-text">Histori Transaksi</h2>
+            <h2 class="history-text">Paket pesanan</h2>
             <div class="container">
-                <p>Histori transaksi dari bulan terakhir</p>
-                <a href="http://" target="_blank" rel="noopener noreferrer">Lihat Selengkapnya</a>
+                <p>Daftar paket pesanan</p>
+                <a href="order.php">Lihat Selengkapnya</a>
             </div>
             <div class="history-table">
                 <table>
-                    <tr>
-                        <td>
-                            <h3>Tanggal</h3>
-                        </td>
-                        <td>
-                            <h3>Nama Pelanggan</h3>
-                        </td>
-                        <td>
-                            <h3>Jumlah Transaksi</h3>
-                        </td>
-                        <td>
-                            <h3>Catatan</h3>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>12 Mei 2009</td>
-                        <td>Muhammad Nezad</td>
-                        <td>26.900</td>
-                        <td>Tes deskripsi</td>
-                    </tr>
-                    <tr>
-                        <td>12 Oktober 2007</td>
-                        <td>Darren Marvel</td>
-                        <td>39.750</td>
-                        <td>Ini tes deskripsi kerja kerja kerja</td>
-                    </tr>
-                    <tr>
-                        <td>12 Oktober 2007</td>
-                        <td>Darren Marvel</td>
-                        <td>39.750</td>
-                        <td>Tes deskripsi</td>
-                    </tr>
-                    <tr>
-                        <td>12 Oktober 2007</td>
-                        <td>Darren Marvel</td>
-                        <td>39.750</td>
-                        <td>Tes deskripsi</td>
-                    </tr>
-
-                </table>
+                <tr>
+                    <td>
+                        <h4>ID Paket</h4>
+                    </td>
+                    <td>
+                        <h4>ID Outlet</h4>
+                    </td>
+                    <td>
+                        <h4>Jenis</h4>
+                    </td>
+                    <td>
+                        <h4>Nama Paket</h>
+                    </td>
+                    <td>
+                        <h4>Harga</h>
+                    </td>
+                </tr>
+                <tr>
+                    <?php
+                    tampilDashboardPesanan($page, $limit);
+                    ?>
+                </tr>
+            </table>
             </div>
         </div>
     </section>

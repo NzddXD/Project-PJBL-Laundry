@@ -1,6 +1,6 @@
 <?php
 
-function tampilkanPelanggan($page = 1, $limit = 5)
+function tampilkanOutlet($page = 1, $limit = 5)
 {
     // Include the database connection
     include $_SERVER['DOCUMENT_ROOT'] . '/project/connection/connection.php';
@@ -9,7 +9,7 @@ function tampilkanPelanggan($page = 1, $limit = 5)
     $offset = ($page - 1) * $limit;
 
     // Query to fetch rows with pagination
-    $sql = "SELECT * FROM tb_paket LIMIT ?, ?";
+    $sql = "SELECT * FROM tb_outlet LIMIT ?, ?";
     $stmt = $connect->prepare($sql);
     $stmt->bind_param("ii", $offset, $limit);
     $stmt->execute();
@@ -20,17 +20,16 @@ function tampilkanPelanggan($page = 1, $limit = 5)
         // Loop through the rows and output them as table rows
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>" . htmlspecialchars($row['id_paket']) . "</td>";
             echo "<td>" . htmlspecialchars($row['id_outlet']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['jenis']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['nama_paket']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['harga']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['nama']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['alamat']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['tlp']) . "</td>";
             echo "<td>
                     <div class='buttons'>
-                        <a href='editCustomer.php?id=" . $row['id_member'] . "' class='edit' title='Edit'>
+                        <a href='editOutlet.php?id=" . $row['id_outlet'] . "' class='edit' title='Edit'>
                             <img src='../../assets/pencil.png' width='23' height='23' alt='pencil icon'>
                         </a>
-                        <button class='delete' title='Delete' onclick=\"confirmDelete(" . $row['id_member'] . ")\">
+                        <button class='delete' title='Delete' onclick=\"confirmDelete('deleteOutlet.php', " . $row['id_outlet'] . ")\">
                             <img src='../../assets/trash.png' width='23' height='23' alt='trash icon'>
                         </button>
                     </div>
@@ -47,13 +46,13 @@ function tampilkanPelanggan($page = 1, $limit = 5)
     $connect->close();
 }
 
-function getTotalOrder()
+function getTotalOutlet()
 {
     // Include the database connection
     include $_SERVER['DOCUMENT_ROOT'] . '/project/connection/connection.php';
 
     // Query to count total rows in tb_member
-    $sql = "SELECT COUNT(*) AS total FROM tb_paket";
+    $sql = "SELECT COUNT(*) AS total FROM tb_outlet";
     $result = $connect->query($sql);
 
     // Fetch the result
