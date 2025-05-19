@@ -48,6 +48,36 @@ function tampilkanPelanggan($page = 1, $limit = 5)
     $connect->close();
 }
 
+function tampilDashboardPelanggan(){
+    // Include the database connection
+    include $_SERVER['DOCUMENT_ROOT'] . '/project/connection/connection.php';
+
+    // Query to fetch rows with pagination
+    $sql = "SELECT * FROM tb_member";
+    $result = $connect->query($sql);
+
+    // Check if the query was successful
+    if ($result && $result->num_rows > 0) {
+        // Loop through the rows and output them as table rows
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td><p>" . htmlspecialchars($row['id_member']) . "</p></td>";
+            echo "<td><p>" . htmlspecialchars($row['nama']) . "</p></td>";
+            echo "<td><p>" . htmlspecialchars($row['email']) . "</p></td>";
+            echo "<td><p>" . htmlspecialchars($row['jenis_kelamin']) . "</p></td>";
+            echo "<td><p>" . htmlspecialchars($row['alamat']) . "</p></td>";
+            echo "<td><p>" . htmlspecialchars($row['tlp']) . "</p></td>";
+            echo "</tr>";
+        }
+    } else {
+        // If no data is found, display a message
+        echo "<tr><td colspan='6'>Ups! Tidak ada data ditemukan di dalam database!</td></tr>";
+    }
+
+    // Close the connection
+    $connect->close();
+}
+
 function getTotalCustomers()
 {
     // Include the database connection

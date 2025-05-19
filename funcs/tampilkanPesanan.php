@@ -49,7 +49,7 @@ function tampilkanPesanan($page = 1, $limit = 5)
     $connect->close();
 }
 
-function tampilDashboardPesanan($page = 1, $limit = 5)
+function tampilDashboardPesanan($page = 1, $limit = 3)
 {
     // koneksi database
     include $_SERVER['DOCUMENT_ROOT'] . '/project/connection/connection.php';
@@ -57,8 +57,9 @@ function tampilDashboardPesanan($page = 1, $limit = 5)
     $offset = ($page - 1) * $limit;
 
     // Kueri untuk mengambil baris dengan pagination
-    $sql = "SELECT * FROM tb_paket";
+    $sql = "SELECT * FROM tb_paket LIMIT ?, ?";
     $stmt = $connect->prepare($sql);
+    $stmt->bind_param("ii", $offset, $limit);
     $stmt->execute();
     $result = $stmt->get_result();
 

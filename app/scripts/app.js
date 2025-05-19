@@ -1,5 +1,6 @@
 // Popup close system (temporary solution)
 const popup = document.querySelector(".popup");
+const popupContent = document.querySelector(".popup-content");
 const titleText = document.getElementById("titleText");
 const messageText = document.getElementById("messageText");
 const deleteButton = document.querySelector(".delete-button");
@@ -65,7 +66,8 @@ function updated(goto) {
   popup.style.display = "flex";
   titleText.textContent = "Berhasil!";
   messageText.textContent = "Data telah berhasil diupdate.";
-  
+
+  transition();
   hidePopup(goto);
 }
 
@@ -76,7 +78,7 @@ function deleted(goto) {
   popup.style.display = "flex";
   titleText.textContent = "Dihapus!";
   messageText.textContent = "Data berhasil dihapus.";
-
+  transition();
   hidePopup(goto);
 }
 
@@ -87,6 +89,15 @@ function errorOnDelete(goto) {
   popup.style.display = "flex";
   titleText.textContent = "Kesalahan!";
   messageText.textContent = "Terjadi kesalahan saat menghapus data.";
-
+  transition();
   hidePopup(goto);
+}
+
+// Move
+function transition() {
+  gsap.from(popupContent, {
+    scale: 0.7,
+    duration: 0.8,
+    ease: "expo.out",
+  });
 }

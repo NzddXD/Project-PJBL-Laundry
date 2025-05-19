@@ -85,7 +85,7 @@
                         <option value="selimut" <?php echo ($pesanan['jenis']) === 'selimut' ? 'selected' : ''; ?>>Selimut</option>
                         <option value="bed_cover" <?php echo ($pesanan['jenis']) === 'bed_cover' ? 'selected' : ''; ?>>Bed Cover</option>
                         <option value="kaos" <?php echo ($pesanan['jenis']) === 'kaos' ? 'selected' : ''; ?>>Kaus</option>
-                        <option value="lainnya" <?php echo ($pesanan['jenis']) === 'lainnya' ? 'selected' : ''; ?>>Lainnya</option>
+                        <option value="lain" <?php echo ($pesanan['jenis']) === 'lain' ? 'selected' : ''; ?>>Lainnya</option>
                     </select>
                     <button type="submit" class="addbutton">Simpan</button>
             </form>

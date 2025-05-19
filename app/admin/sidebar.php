@@ -54,4 +54,6 @@
             <li><a href="logout.php">Logout</a><img src="../../assets/exit.png" width="28" height="28" /></li>
         </ul>
     </div>
+    <script src="../scripts/gsap-public/minified/gsap.min.js"></script>
+    <script src="../scripts/sidebarScripts.js"></script>
 </aside>

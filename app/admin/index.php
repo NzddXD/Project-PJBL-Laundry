@@ -2,7 +2,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/project/funcs/tampilkanPesanan.php';
 
 $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
-$limit = 5; // Number of rows per page
+$limit = 3; // Number of rows per page
 
 // Get the total number of customers
 $totalOrder = getTotalOrder();
@@ -23,7 +23,7 @@ $totalPages = ceil($totalOrder / $limit);
     <?php include 'sidebar.php'; ?> <!-- Cleaner code -->
     <section class="content">
         <h1>Dashboard</h1>
-        <div class="dashboard">
+        <div class="dashboard x">
             <div class="status-details">
                 <div class="status">
                     <img src="../../assets/clock.png" alt="clock" width="45" height="45">
@@ -83,6 +83,7 @@ $totalPages = ceil($totalOrder / $limit);
             </div>
         </div>
     </section>
+    <script src="../scripts/dashboard.js"></script>
 </body>
 
 </html>

@@ -27,7 +27,7 @@
             <h1>Login</h1>
             <p>Selamat datang! Silahkan masuk dengan akun anda.</p>
         </div>
-        <form action="loginSystem.php" method="get">
+        <form action="loginSystem.php" method="get" id="login-form" style="overflow: hidden;">
             <div class="error">
                 <p class="error-msg" id="err">Error blablabla</p>
             </div>
@@ -60,8 +60,9 @@
             errorMsg.querySelector('.error-msg').textContent = message;
             if (errorMsg.classList.contains('visible')) {
                 setTimeout(() => {
+                    vanish(".error");
                     errorMsg.classList.remove('visible');
-                }, 3000);
+                }, 2500);
             }
         }
         function status(message) {
@@ -69,11 +70,14 @@
             statusMsg.querySelector('.status-msg').textContent = message;
             if (statusMsg.classList.contains('visible')) {
                 setTimeout(() => {
+                    vanish(".status");
                     statusMsg.classList.remove('visible');
-                }, 3000);
+                }, 2500);
             }
         }
     </script>
+
+
     <?php
     if (isset($_GET['msg'])) {
         if ($_GET['msg'] === 'error') {
@@ -85,6 +89,8 @@
         }
     }
     ?>
+    <script src="app/scripts/gsap-public/minified/gsap.min.js"></script>
+    <script src="scripts/app.js"></script>
 </body>
 
 </html>

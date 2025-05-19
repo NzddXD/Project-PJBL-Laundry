@@ -77,7 +77,7 @@
                     <option value="selimut">Selimut</option>
                     <option value="bed_cover">Bed Cover</option>
                     <option value="kaos">Kaus</option>
-                    <option value="lainnya">Lainnya</option>
+                    <option value="lain">Lainnya</option>
                 </select>
 
                 <button type="submit" class="addbutton">Simpan</button>
