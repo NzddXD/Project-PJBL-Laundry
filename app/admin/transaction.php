@@ -16,9 +16,10 @@ $totalPages = ceil($totalTransaction / $limit);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laundry | Pelanggan</title>
+    <?php include '../../funcs/globalFavIcon.php';?>
 
     <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/customer.css">
+    <link rel="stylesheet" href="style/order.css">
 </head>
 
 <body>
@@ -42,13 +43,13 @@ $totalPages = ceil($totalTransaction / $limit);
     <?php
     if (isset($_GET['msg'])) {
         if ($_GET['msg'] === 'deleted') {
-            echo "<script>deleted('../../app/admin/customer.php')</script>";
+            echo "<script>deleted('../../app/admin/transaction.php')</script>";
         } elseif ($_GET['msg'] === 'error') {
-            echo "<script>errorOnDelete('../../app/admin/customer.php')</script>";
+            echo "<script>errorOnDelete('../../app/admin/transaction.php')</script>";
         } elseif ($_GET['msg'] === 'invalid') {
             echo "<script>errorOnDelete()</script>";
         } elseif ($_GET['msg'] === 'updated') {
-            echo "<script>updated('../../app/admin/customer.php')</script>";
+            echo "<script>updated('../../app/admin/transaction.php')</script>";
         } elseif ($_GET['msg'] === 'error') {
             echo "<script>error()</script>";
         } elseif ($_GET['msg'] === 'invalid') {
@@ -61,25 +62,22 @@ $totalPages = ceil($totalTransaction / $limit);
         <h1>Transaksi</h1>
         <div class="text-container">
             <p>Total data Transaksi di Database: <b><?php echo getTotalTransaction(); ?> entri</b></p>
-            <a href="newCustomer.php" class="addbutton">Transaksi Baru</a>
+            <a href="newTransaction.php" class="addbutton">Transaksi Baru</a>
         </div>
         <div class="dashboard">
             <table>
                 <tr>
                     <td>
-                        <h4>ID Transaksi</h>
+                        <h4>No.</h>
                     </td>
                     <td>
-                        <h4>ID Outlet</h4>
+                        <h4>Nama Outlet</h4>
                     </td>
                     <td>
-                        <h4>ID Member</h4>
+                        <h4>Nama Pelanggan</h4>
                     </td>
                     <td>
-                        <h4>ID User</h4>
-                    </td>
-                    <td>
-                        <h4>Tanggal</h>
+                        <h4>Tanggal</h4>
                     </td>
                     <td>
                         <h4>Status</h4>
@@ -88,11 +86,20 @@ $totalPages = ceil($totalTransaction / $limit);
                         <h4>Dibayar?</h4>
                     </td>
                     <td>
+                        <h4>Berat</h4>
+                    </td>
+                    <!-- <td>
+                        <h4>Kode Paket</h4>
+                    </td> -->
+                    <td>
+                        <h4>Nama Paket</h4>
+                    </td>
+                    <td>
                         <h4>Aksi</h4>
                     </td>
                 </tr>
                 <?php
-                // Display customers for the current page
+                // Display transactions for the current page
                 tampilkanTransaksi($page, $limit);
                 ?>
             </table>

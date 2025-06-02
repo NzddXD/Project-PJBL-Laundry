@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="style/sidebar.css">
+<link rel="icon" type="image" href="../../assets/favicon.png">
 
 <aside class="navbar">
     <!-- <div class="collapse-button">
@@ -28,8 +29,9 @@
         <ul>
             <li><a href="index.php">Dashboard</a><img src="../../assets/home.png" width="28" height="28" /></li>
             <li><a href="customer.php">Pelanggan</a><img src="../../assets/user.png" width="28" height="28" /></li>
-            <li><a href="order.php">Pesanan</a><img src="../../assets/mail.png" width="28" height="28" /></li>
-            <li><a href="transaction.php">Transaksi</a><img src="../../assets/cheap-2.png" width="28" height="28" /></li>
+            <li><a href="order.php">Paket</a><img src="../../assets/box.png" width="28" height="28" /></li>
+            <li><a href="transaction.php">Transaksi</a><img src="../../assets/cheap-2.png" width="28" height="28" />
+            </li>
             <li><a href="outlet.php">Outlet</a><img src="../../assets/shop.png" width="28" height="28" /></li>
             <li><a href="settings.php">Pengaturan</a><img src="../../assets/settings.png" width="25" height="25" /></li>
         </ul>
@@ -37,7 +39,7 @@
     <div class="logout">
         <ul>
             <div class="login-as">
-                <p>Masuk sebagai:</p>
+                <p>Masuk sebagai: <br> <b><?php echo htmlspecialchars($_SESSION["nama"]) ?></b></p>
                 <h3>
                     <?php
                     // Check if user is logged in
@@ -49,6 +51,7 @@
                     // Display username
                     echo htmlspecialchars($_SESSION["username"]);
                     ?>
+                    ( <?php echo htmlspecialchars($_SESSION["role"]) ?> )
                 </h3>
             </div>
             <li><a href="logout.php">Logout</a><img src="../../assets/exit.png" width="28" height="28" /></li>

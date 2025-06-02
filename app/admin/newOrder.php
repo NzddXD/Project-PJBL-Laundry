@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laundry | Pesanan</title>
+    <?php include '../../funcs/globalFavIcon.php';?>
 
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/customer.css">
@@ -64,6 +65,7 @@
                         </option>
                     <?php endwhile; ?>
                 </select>
+                <input type="hidden" name="kode_paket" id="kode_paket" value="<?php include '../../funcs/randInt.php'; ?>">
 
                 <label for="nama_paket">Nama Paket</label>
                 <input type="text" name="nama_paket" id="nama_paket" required>

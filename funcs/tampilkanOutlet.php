@@ -15,12 +15,14 @@ function tampilkanOutlet($page = 1, $limit = 5)
     $stmt->execute();
     $result = $stmt->get_result();
 
+    $no = 1 + $offset;
+
     // Check if the query was successful
     if ($result && $result->num_rows > 0) {
         // Loop through the rows and output them as table rows
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>" . htmlspecialchars($row['id_outlet']) . "</td>";
+            echo "<td>" . $no++ . "</td>";
             echo "<td>" . htmlspecialchars($row['nama']) . "</td>";
             echo "<td>" . htmlspecialchars($row['alamat']) . "</td>";
             echo "<td>" . htmlspecialchars($row['tlp']) . "</td>";

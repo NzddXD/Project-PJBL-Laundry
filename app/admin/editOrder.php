@@ -17,6 +17,8 @@
         echo "Data pesanan tidak ditemukan!";
         exit();
     }
+
+    $outletResult = $connect->query("SELECT id_outlet, nama FROM tb_outlet");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +27,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laundry | Pesanan</title>
+    <?php include '../../funcs/globalFavIcon.php';?>
 
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/customer.css">
@@ -72,6 +75,15 @@
                     <input type="hidden" name="id_paket" value="<?php echo $pesanan['id_paket']; ?>">
 
                     <!-- <input type="hidden" name="id_outlet" value="<?php echo $pesanan['id_outlet']; ?>"> -->
+
+                    <label for="id_outlet">Outlet</label>
+                    <select name="id_outlet" id="id_outlet" required>
+                        <?php while ($outlet = $outletResult->fetch_assoc()) : ?>
+                            <option value="<?php echo $outlet['id_outlet']; ?>" <?php echo ($outlet['id_outlet'] === $pesanan['id_outlet']) ? 'selected' : ''; ?>>
+                                <?php echo htmlspecialchars($outlet['nama']); ?>
+                            </option>
+                        <?php endwhile; ?>
+                    </select>
 
                     <label for="nama_paket">Nama Pesanan</label>
                     <input type="text" name="nama_paket" id="nama_paket" value="<?php echo htmlspecialchars($pesanan['nama_paket']); ?>" required>

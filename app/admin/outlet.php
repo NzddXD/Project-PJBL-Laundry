@@ -17,6 +17,7 @@ $totalPages = ceil($totalOutlet / $limit);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laundry | Outlet</title>
+    <?php include '../../funcs/globalFavIcon.php';?>
 
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/order.css">
@@ -66,7 +67,7 @@ $totalPages = ceil($totalOutlet / $limit);
             <table>
                 <tr>
                     <td>
-                        <h4>ID Outlet</h4>
+                        <h4>No.</h4>
                     </td>
                     <td>
                         <h4>Nama</h4>

@@ -26,26 +26,27 @@
     </div>
     <div class="menu">
         <ul>
-            <li><a href="index.php">Dashboard</a><img src="../../assets/home.png" width="28" height="28" /></li>
-            <li><a href="customer.php">Pelanggan</a><img src="../../assets/user.png" width="28" height="28" /></li>
-            <li><a href="settings.php">Pengaturan</a><img src="../../assets/settings.png" width="25" height="25" /></li>
+            <li id="list"><a href="index.php">Dashboard</a><img src="../../assets/home.png" width="28" height="28" />
+            </li>
+            <li id="list"><a href="customer.php">Pelanggan</a><img src="../../assets/user.png" width="28" height="28" />
+            </li>
+            <li id="list"><a href="transaction.php">Transaksi</a><img src="../../assets/cheap-2.png" width="28"
+                    height="28" /></li>
+            <li id="list"><a href="settings.php">Pengaturan</a><img src="../../assets/settings.png" width="25"
+                    height="25" /></li>
         </ul>
     </div>
     <div class="logout">
         <ul>
             <div class="login-as">
-                <p>Masuk sebagai:</p>
+                <p>Masuk sebagai: <br> <b><?php echo htmlspecialchars($_SESSION["nama"]) ?></b></p>
                 <h3>
                     <?php
-                    // Check if user is logged in
-                    if (!isset($_SESSION["username"])) {
-                        header("location:../../index.php?msg=not_loggedIn");
-                        exit();
-                    }
-
                     // Display username
                     echo htmlspecialchars($_SESSION["username"]);
                     ?>
+
+                    ( <?php echo htmlspecialchars($_SESSION["role"]) ?> )
                 </h3>
             </div>
             <li><a href="logout.php">Logout</a><img src="../../assets/exit.png" width="28" height="28" /></li>

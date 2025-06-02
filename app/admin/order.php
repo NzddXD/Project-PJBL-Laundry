@@ -17,6 +17,7 @@ $totalPages = ceil($totalOrder / $limit);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laundry | Pesanan</title>
+    <?php include '../../funcs/globalFavIcon.php';?>
 
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/order.css">
@@ -57,25 +58,28 @@ $totalPages = ceil($totalOrder / $limit);
     ?>
     <?php include 'sidebar.php'; ?> <!-- Cleaner code -->
     <section class="content">
-        <h1>Pesanan</h1>
+        <h1>Paket</h1>
         <div class="text-container">
-            <p>Total data pesanan di Database: <b><?php echo getTotalOrder(); ?> entri</b></p>
+            <p>Total data paket di Database: <b><?php echo getTotalOrder(); ?> entri</b></p>
             <a href="newOrder.php" class="addbutton">Pesanan Baru</a>
         </div>
         <div class="dashboard">
             <table>
                 <tr>
                     <td>
-                        <h4>ID Paket</h4>
+                        <h4>No.</h4>
                     </td>
                     <td>
-                        <h4>ID Outlet</h4>
+                        <h4>Nama Outlet</h4>
                     </td>
                     <td>
-                        <h4>Jenis</h4>
+                        <h4>Jenis Paket</h4>
                     </td>
                     <td>
                         <h4>Nama Paket</h>
+                    </td>
+                    <td>
+                        <h4>Kode Paket</h>
                     </td>
                     <td>
                         <h4>Harga</h>

@@ -20,6 +20,8 @@ if ($admin_cek > 0) {
     $_SESSION["username"] = $username;
     $_SESSION["status"] = 'login';
     $_SESSION["role"] = 'admin';
+    $_SESSION["nama"] = $user['nama'];
+
     $_SESSION["id"] = $user['id_user'];
     header("location:app/admin/index.php");
     exit();
@@ -28,7 +30,7 @@ if ($admin_cek > 0) {
 
     //  ? is a placeholder for the prepared statement
     // The bind_param method binds the parameters to the SQL query
-    
+
     $stmt = $connect->prepare("SELECT * FROM tb_user WHERE username = ? AND password = ? AND role = 'kasir'");
     $stmt->bind_param("ss", $username, $password);
     $stmt->execute();
@@ -40,13 +42,32 @@ if ($admin_cek > 0) {
         $_SESSION["username"] = $username;
         $_SESSION["status"] = 'login';
         $_SESSION["role"] = 'cashier';
+        $_SESSION["nama"] = $user['nama'];
+
         $_SESSION["id"] = $user['id_user'];
         header("location:app/cashier/index.php");
         exit();
     } else {
-        // Handle invalid login
-        header("location:index.php?msg=error");
-        exit();
+        $stmt = $connect->prepare("SELECT * FROM tb_user WHERE username = ? AND password = ? AND role = 'owner'");
+        $stmt->bind_param("ss", $username, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $cashier_cek = $result->num_rows;
+
+        if ($cashier_cek > 0) {
+            $user = $result->fetch_assoc();
+            $_SESSION["username"] = $username;
+            $_SESSION["status"] = 'login';
+            $_SESSION["role"] = 'owner';
+            $_SESSION["nama"] = $user['nama'];
+            $_SESSION["id"] = $user['id_user'];
+            header("location:app/owner/index.php");
+            exit();
+        } else {
+            // Handle invalid login
+            header("location:index.php?msg=error");
+            exit();
+        }
     }
 }
 

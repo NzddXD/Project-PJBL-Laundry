@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2025 at 03:33 AM
+-- Generation Time: May 22, 2025 at 09:00 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,25 +46,26 @@ CREATE TABLE `tb_member` (
   `alamat` text DEFAULT NULL,
   `jenis_kelamin` enum('Laki laki','Perempuan') DEFAULT NULL,
   `tlp` varchar(15) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL
+  `email` varchar(50) DEFAULT NULL,
+  `id_outlet` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_member`
 --
 
-INSERT INTO `tb_member` (`id_member`, `nama`, `alamat`, `jenis_kelamin`, `tlp`, `email`) VALUES
-(1, 'Himiko', 'Drab', 'Perempuan', '08239483212', 'testmail@mail.to'),
-(3, 'MrVL', 'Icebreaker', 'Laki laki', '0218312946', 'testmail@mail.to'),
-(8, 'John Doe', 'United Kingdom', 'Laki laki', '10180381', 'jondoe@example.co'),
-(9, 'Jane Doe', 'United Kingdom', 'Perempuan', '10180381', 'janedoe@example.co'),
-(11, 'Anjay', 'United Kingdom', 'Laki laki', '10180381', 'jondoe@example.co'),
-(14, 'Dummy1', 'Poolrooms', 'Laki laki', '10180381', 'janedoe@example.co'),
-(15, 'Dummy2', 'Poolrooms', 'Laki laki', '10180381', 'janedoe@example.co'),
-(17, 'Dummy211', 'Poolrooms', 'Laki laki', '10180381', 'janedoe@example.co'),
-(18, '1', 'Poolrooms', 'Laki laki', '10180381', 'janedoe@example.co'),
-(19, '112121', 'Poolrooms', 'Laki laki', '10180381', 'janedoe@example.co'),
-(20, 'Nama Keren', 'Alamat', 'Perempuan', '02374982374', 'email@email.email');
+INSERT INTO `tb_member` (`id_member`, `nama`, `alamat`, `jenis_kelamin`, `tlp`, `email`, `id_outlet`) VALUES
+(1, 'Himiko', 'Drab', 'Perempuan', '08239483212', 'testmail@mail.to', NULL),
+(3, 'MrVL', 'Icebreaker', 'Laki laki', '0218312946', 'testmail@mail.to', NULL),
+(8, 'John Doe', 'United Kingdom', 'Laki laki', '10180381', 'jondoe@example.co', NULL),
+(9, 'Jane Doe', 'United Kingdom', 'Perempuan', '10180381', 'janedoe@example.co', NULL),
+(11, 'Anjay', 'United Kingdom', 'Laki laki', '10180381', 'jondoe@example.co', NULL),
+(14, 'Dummy1', 'Poolrooms', 'Laki laki', '10180381', 'janedoe@example.co', NULL),
+(15, 'Dummy2', 'Poolrooms', 'Laki laki', '10180381', 'janedoe@example.co', NULL),
+(17, 'Dummy211', 'Poolrooms', 'Laki laki', '10180381', 'janedoe@example.co', NULL),
+(19, '112121', 'Poolrooms', 'Laki laki', '10180381', 'janedoe@example.co', NULL),
+(20, 'Fajar', 'jelekong', 'Laki laki', '0856771234', 'fajar@gmail.com', NULL),
+(21, 'JHASKJDH', 'jelekong', 'Laki laki', '0856771234', 'fajar@gmail.com', NULL);
 
 -- --------------------------------------------------------
 
@@ -99,21 +100,18 @@ CREATE TABLE `tb_paket` (
   `id_outlet` int(11) NOT NULL,
   `jenis` enum('kiloan','selimut','bed_cover','kaos','lain') DEFAULT NULL,
   `nama_paket` varchar(100) DEFAULT NULL,
-  `harga` int(11) DEFAULT NULL
+  `harga` int(11) DEFAULT NULL,
+  `kode_paket` int(11) NOT NULL,
+  `id_transaksi` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_paket`
 --
 
-INSERT INTO `tb_paket` (`id_paket`, `id_outlet`, `jenis`, `nama_paket`, `harga`) VALUES
-(1, 1, 'kiloan', 'My Femboy Socks', 21344),
-(2, 2, 'kiloan', 'My Femboy Socks', 21344),
-(3, 1, 'kiloan', 'My Femboy Socks', 21344),
-(4, 2, 'kiloan', 'My Femboy Socks', 21344),
-(5, 1, 'kiloan', 'My Femboy Socks', 21344),
-(6, 1, 'lain', 'Kemono Fursuit', 45499),
-(7, 2, 'lain', 'Kemono Fursuit', 45499);
+INSERT INTO `tb_paket` (`id_paket`, `id_outlet`, `jenis`, `nama_paket`, `harga`, `kode_paket`, `id_transaksi`) VALUES
+(4, 3, 'kaos', 'Paket keren', 10000, 5666, NULL),
+(6, 2, 'kaos', 'MrVL\'s Clothes', 299000, 2168, NULL);
 
 -- --------------------------------------------------------
 
@@ -125,21 +123,14 @@ CREATE TABLE `tb_transaksi` (
   `id_transaksi` int(11) NOT NULL,
   `id_outlet` int(11) NOT NULL,
   `id_member` int(11) NOT NULL,
-  `tgl` datetime DEFAULT NULL,
+  `tgl` date DEFAULT NULL,
   `batas_waktu` datetime DEFAULT NULL,
   `tgl_bayar` datetime DEFAULT NULL,
   `biaya_tambahan` int(11) DEFAULT NULL,
   `status` enum('Baru','Proses','Selesai','Diambil') DEFAULT NULL,
-  `dibayar` enum('Dibayar','belum_dibayar') DEFAULT NULL,
+  `dibayar` enum('Dibayar','Belum dibayar') DEFAULT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tb_transaksi`
---
-
-INSERT INTO `tb_transaksi` (`id_transaksi`, `id_outlet`, `id_member`, `tgl`, `batas_waktu`, `tgl_bayar`, `biaya_tambahan`, `status`, `dibayar`, `id_user`) VALUES
-(1, 1, 1, '2025-05-20 00:00:00', NULL, NULL, NULL, 'Proses', 'Dibayar', 1);
 
 -- --------------------------------------------------------
 
@@ -183,7 +174,8 @@ ALTER TABLE `tb_detail_transaksi`
 --
 ALTER TABLE `tb_member`
   ADD PRIMARY KEY (`id_member`),
-  ADD UNIQUE KEY `nama` (`nama`);
+  ADD UNIQUE KEY `nama` (`nama`),
+  ADD KEY `fk_pelanggan_outlet` (`id_outlet`);
 
 --
 -- Indexes for table `tb_outlet`
@@ -224,7 +216,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_member`
 --
 ALTER TABLE `tb_member`
-  MODIFY `id_member` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_member` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables
@@ -236,6 +228,12 @@ ALTER TABLE `tb_member`
 ALTER TABLE `tb_detail_transaksi`
   ADD CONSTRAINT `fk_detail_paket` FOREIGN KEY (`id_paket`) REFERENCES `tb_paket` (`id_paket`),
   ADD CONSTRAINT `fk_detail_transaksi` FOREIGN KEY (`id_transaksi`) REFERENCES `tb_transaksi` (`id_transaksi`);
+
+--
+-- Constraints for table `tb_member`
+--
+ALTER TABLE `tb_member`
+  ADD CONSTRAINT `fk_pelanggan_outlet` FOREIGN KEY (`id_outlet`) REFERENCES `tb_outlet` (`id_outlet`);
 
 --
 -- Constraints for table `tb_paket`

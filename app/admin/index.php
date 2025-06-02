@@ -15,7 +15,7 @@ $totalPages = ceil($totalOrder / $limit);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laundry | Dashboard</title>
-
+    <?php include '../../funcs/globalFavIcon.php';?>
     <link rel="stylesheet" href="style/style.css">
 </head>
 
@@ -29,7 +29,7 @@ $totalPages = ceil($totalOrder / $limit);
                     <img src="../../assets/clock.png" alt="clock" width="45" height="45">
                     <div class="status-text">
                         <p>Cucian Menunggu</p>
-                        <h2>100</h2>
+                        <h2><?php include_once '../../funcs/hitungStatusCuci.php'; echo getStatus(); ?></h2>
                     </div>
                 </div>
                 <div class="status">
@@ -41,9 +41,9 @@ $totalPages = ceil($totalOrder / $limit);
 
                 </div>
                 <div class="status">
-                    <img src="../../assets/mail.png" alt="mail" width="45" height="45">
+                    <img src="../../assets/box.png" alt="mail" width="45" height="45">
                     <div class="status-text">
-                        <p>Total Pesanan</p>
+                        <p>Total Paket</p>
                         <h2><?php include_once '../../funcs/hitungPesanan.php'; echo getOrder(); ?></h2>
                     </div>
                 </div>
@@ -59,10 +59,10 @@ $totalPages = ceil($totalOrder / $limit);
                 <table>
                 <tr>
                     <td>
-                        <h4>ID Paket</h4>
+                        <h4>No.</h4>
                     </td>
                     <td>
-                        <h4>ID Outlet</h4>
+                        <h4>Nama Outlet</h4>
                     </td>
                     <td>
                         <h4>Jenis</h4>
@@ -71,7 +71,10 @@ $totalPages = ceil($totalOrder / $limit);
                         <h4>Nama Paket</h>
                     </td>
                     <td>
-                        <h4>Harga</h>
+                        <h4>Kode Paket</h>
+                    </td>
+                    <td>
+                        <h4>Harga Paket</h>
                     </td>
                 </tr>
                 <tr>

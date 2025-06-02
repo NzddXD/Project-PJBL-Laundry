@@ -15,6 +15,7 @@ $totalPages = ceil($totalPelanggan / $limit);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laundry | Dashboard</title>
+    <?php include '../../funcs/globalFavIcon.php';?>
 
     <link rel="stylesheet" href="style/style.css">
 </head>
@@ -26,13 +27,13 @@ $totalPages = ceil($totalPelanggan / $limit);
             <h1 class="header-text">Dashboard</h1>
             <div class="container">
                 <p>Daftar pelanggan di database: <b><?php echo getTotalCustomers(); ?> entri</b></p>
-                <a href="order.php">Lihat Selengkapnya</a>
+                <a href="customer.php">Lihat Selengkapnya</a>
             </div>
             <div class="history-table">
                 <table>
                     <tr>
                         <td>
-                            <h4>ID</h4>
+                            <h4>No. </h4>
                         </td>
                         <td>
                             <h4>Nama</h4>

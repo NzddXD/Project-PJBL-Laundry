@@ -10,11 +10,15 @@ function tampilkanPesanan($page = 1, $limit = 5)
     $offset = ($page - 1) * $limit;
 
     // Kueri untuk mengambil baris dengan pagination
-    $sql = "SELECT * FROM tb_paket LIMIT ?, ?";
+    $sql = "SELECT tb_paket.*, tb_outlet.nama AS nama_outlet
+            FROM tb_paket
+            LEFT JOIN tb_outlet ON tb_paket.id_outlet = tb_outlet.id_outlet LIMIT ?, ?";
     $stmt = $connect->prepare($sql);
     $stmt->bind_param("ii", $offset, $limit);
     $stmt->execute();
     $result = $stmt->get_result();
+
+    $no = 1 + $offset;
 
     // Periksa apakah kueri berhasil
     if ($result && $result->num_rows > 0) {
@@ -22,10 +26,12 @@ function tampilkanPesanan($page = 1, $limit = 5)
         // Loop melalui baris dan output sebagai baris tabel
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>" . htmlspecialchars($row['id_paket']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['id_outlet']) . "</td>";
+            // echo "<td>" . htmlspecialchars($row['id_paket']) . "</td>";
+            echo "<td>" . $no++ . "</td>";
+            echo "<td>" . htmlspecialchars($row['nama_outlet']) . "</td>";
             echo "<td>" . htmlspecialchars($row['jenis']) . "</td>";
             echo "<td>" . htmlspecialchars($row['nama_paket']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['kode_paket']) . "</td>";
             echo "<td>Rp " . number_format($row['harga'], 0, ',', '.') . "</td>";
             echo "<td>
                     <div class='buttons'>
@@ -57,11 +63,15 @@ function tampilDashboardPesanan($page = 1, $limit = 3)
     $offset = ($page - 1) * $limit;
 
     // Kueri untuk mengambil baris dengan pagination
-    $sql = "SELECT * FROM tb_paket LIMIT ?, ?";
+    $sql = "SELECT tb_paket.*, tb_outlet.nama AS nama_outlet
+            FROM tb_paket
+            LEFT JOIN tb_outlet ON tb_paket.id_outlet = tb_outlet.id_outlet LIMIT ?, ?";
     $stmt = $connect->prepare($sql);
     $stmt->bind_param("ii", $offset, $limit);
     $stmt->execute();
     $result = $stmt->get_result();
+
+    $no = 1 + $offset;
 
     // Periksa apakah kueri berhasil
     if ($result && $result->num_rows > 0) {
@@ -69,10 +79,12 @@ function tampilDashboardPesanan($page = 1, $limit = 3)
         // Loop melalui baris dan output sebagai baris tabel
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>" . htmlspecialchars($row['id_paket']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['id_outlet']) . "</td>";
+            // echo "<td>" . htmlspecialchars($row['id_paket']) . "</td>";
+            echo "<td>" . $no++ . "</td>";
+            echo "<td>" . htmlspecialchars($row['id_outlet']) . ' - ' . htmlspecialchars($row['nama_outlet']) . "</td>";
             echo "<td>" . htmlspecialchars($row['jenis']) . "</td>";
             echo "<td>" . htmlspecialchars($row['nama_paket']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['kode_paket']) . "</td>";
             echo "<td>Rp " . number_format($row['harga'], 0, ',', '.') . "</td>";
             echo "</tr>";
         }
