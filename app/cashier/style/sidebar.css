@@ -1,0 +1,231 @@
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../../fonts/Poppins/Poppins.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("../../fonts/Raleway/Raleway-VariableFont_wght.ttf") format("truetype");
+  /* src: url("../../fonts/Raleway/Raleway-Italic-VariableFont_wght.ttf") format("truetype"); */
+}
+@font-face {
+  font-family: "Afacad";
+  src: url("../../fonts/Afacad/Afacad-VariableFont_wght.ttf") format("truetype");
+  /* src: url("../../fonts/Afacad/Afacad-Italic-VariableFont_wght.ttf") format("truetype"); */
+}
+@font-face {
+  font-family: "Merriweather Sans";
+  src: url("../../fonts/Merriweather_Sans/MerriweatherSans-VariableFont_wght.ttf") format("truetype");
+  /* src: url("../../fonts/Merriweather_Sans/MerriweatherSans-Italic-VariableFont_wght.ttf") format("truetype"); */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Sidebar Section */
+.navbar {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  flex-direction: column;
+  width: 250px;
+  height: 100vh;
+  background-color: #d9cfc1;
+  font-family: "Poppins", sans-serif;
+  z-index: 3;
+}
+.navbar .greeting {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  padding: 0;
+  width: 100%;
+}
+.navbar .greeting h1 {
+  position: relative;
+  text-align: center;
+  font-size: 30px;
+  color: #314345;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.navbar .greeting p {
+  position: relative;
+  text-align: center;
+  font-size: 15px;
+  color: #314345;
+  padding: 0px 20px;
+  font-weight: 400;
+  margin-bottom: 4em;
+}
+
+.navbar .greeting p:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 0.5px;
+  left: 0;
+  bottom: 0;
+  background-color: #928677;
+  margin-bottom: 35px;
+}
+
+.navbar .menu {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  width: 100%;
+}
+
+.navbar .menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navbar .menu ul li {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2.9%;
+  align-items: center;
+  padding: 10px;
+  background-color: #d9cfc1;
+  transition: 0.1s;
+}
+
+.navbar .menu ul li:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 100%;
+  left: 0;
+  background-color: #67a2b6;
+  transition: 0.1s;
+}
+
+.navbar .menu ul li:hover {
+  background-color: #e8dfd2;
+  /* transition: .3s; */
+  cursor: pointer;
+}
+
+.navbar .menu ul li:hover:before {
+  width: 8px;
+}
+
+.navbar .menu ul li a {
+  text-decoration: none;
+  color: #4e595a;
+  width: 100%;
+  font-size: 15px;
+  padding: 10px;
+  font-weight: 450;
+}
+
+.navbar .logout {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 1.5em;
+  flex-direction: column;
+  padding: 0;
+  width: 100%;
+}
+
+.navbar .logout ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navbar .logout ul li {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2.9%;
+  align-items: center;
+  padding: 10px;
+  background-color: #d9cfc1;
+  transition: 0.1s;
+}
+
+.navbar .logout ul li a {
+  text-decoration: none;
+  color: #d77a7a;
+  font-size: 15px;
+  width: 100%;
+  padding: 10px;
+  font-weight: 450;
+  transition: 0.1s;
+}
+
+.navbar .logout ul li:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 100%;
+  left: 0;
+  background-color: #e08787;
+  transition: 0.1s;
+}
+
+.navbar .logout .login-as {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2.9%;
+  padding: 10px;
+  margin-left: 10px;
+  background-color: #d9cfc1;
+}
+
+.navbar .logout .login-as p {
+  font-size: 15px;
+  color: #314345;
+  font-weight: 400;
+}
+
+.navbar .logout .login-as h3 {
+  font-size: 15px;
+  color: #3c6569;
+  
+}
+
+.navbar .logout ul li:hover {
+  background-color: #e8dfd2;
+  cursor: pointer;
+}
+
+.navbar .logout ul li:hover:before {
+  width: 8px;
+}
+
+/* Menu Button */
+
+#collapse {
+  display: block;
+  position: absolute;
+  top: 1.3em;
+  right: -3em;
+  padding: 10px;
+  background-color: #a99983;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media screen and (max-width < 509px){
+  .navbar {
+    background: #000;
+  }
+}

@@ -1,0 +1,184 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("../../fonts/Poppins/Poppins.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("../../fonts/Raleway/Raleway-VariableFont_wght.ttf") format("truetype");
+  /* src: url("../../fonts/Raleway/Raleway-Italic-VariableFont_wght.ttf") format("truetype"); */
+}
+@font-face {
+  font-family: "Afacad";
+  src: url("../../fonts/Afacad/Afacad-VariableFont_wght.ttf") format("truetype");
+  /* src: url("../../fonts/Afacad/Afacad-Italic-VariableFont_wght.ttf") format("truetype"); */
+}
+@font-face {
+  font-family: "Merriweather Sans";
+  src: url("../../fonts/Merriweather_Sans/MerriweatherSans-VariableFont_wght.ttf") format("truetype");
+  /* src: url("../../fonts/Merriweather_Sans/MerriweatherSans-Italic-VariableFont_wght.ttf") format("truetype"); */
+}
+
+
+* {
+  --text-color: #314345;
+  --background-color: #f4f4f4;
+  --container-color: #f0ede9;
+  --btn-color: #67a2b6;
+  --edit-color: #f7d475;
+  --delete-color: #fa8c8c;
+  --success-color: #88c4d8;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 0;
+  margin: 0;
+  font-family: 'Raleway';
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins";
+  font-weight: bold;
+}
+
+p {
+  font-family: "Raleway";
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  /* background-color: var(--container-color); */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+/* .items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.container .header{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.1em;
+  /* height: 50px; */
+}
+
+.container .header .print button {
+  background-color: none;
+  background: none;
+  color: var(--text-color);
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: 1px solid var(--text-color);
+  cursor: pointer;
+  font-family: "Poppins";
+  font-weight: bold;
+  transition: .15s;
+}
+.container .header .print button:hover {
+  background-color: var(--success-color);
+    padding: 10px 20px;
+  /* color: white; */
+}
+
+.container .header .title{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1.1em;
+  /* height: 50px; */
+}
+
+.container .header p {
+  line-height: 60px;
+  vertical-align: middle;
+}
+
+.container .content {
+  width: 85%;
+  height: 70vh;
+  /* background-color: #314345; */
+  /* border: 1px solid var(--text-color); */
+  border-radius: 5px;
+}
+.container .content .item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid var(--text-color);
+}
+.container .content .item .item-name {
+  /* font-family: "Poppins"; */
+  /* font-size: 20px; */
+  /* color: var(--text-color); */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2em;
+  width: 50%;
+}
+/* 
+.container .content table {
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  border-collapse: collapse;
+}
+
+.container .content table tr th {
+  text-align: left;
+  position: relative;
+    border-bottom: 1px solid var(--text-color);
+}
+
+.container .content table tr td {
+  font-family: 'Poppins';
+  text-align: left;
+  columns: 1;
+  border-bottom: 1.5px solid var(--text-color);
+
+}
+.container .content table tr {
+  height: 10px;
+  border-bottom: 1.5px solid var(--text-color);
+} */
+/* 
+.no-underline {
+  border-bottom: none;
+} */
+
+.container .content table tr td {
+  text-align: right;
+}
