@@ -30,6 +30,10 @@
   --btn-color: #67a2b6;
 }
 
+body {
+  background-color: var(--background-color);
+}
+
 h1,
 h2,
 p {
